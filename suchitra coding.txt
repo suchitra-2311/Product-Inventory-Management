@@ -1,0 +1,53 @@
+inventory = {}
+
+def add_product():
+    name = input("Enter product name: ")
+    qty = int(input("Enter quantity: "))
+    inventory[name] = qty
+    print("Product added successfully!")
+
+def view_products():
+    if not inventory:
+        print("Inventory is empty")
+    else:
+        for product, qty in inventory.items():
+            print(product, ":", qty)
+
+def update_product():
+    name = input("Enter product name to update: ")
+    if name in inventory:
+        qty = int(input("Enter new quantity: "))
+        inventory[name] = qty
+        print("Product updated")
+    else:
+        print("Product not found")
+
+def delete_product():
+    name = input("Enter product name to delete: ")
+    if name in inventory:
+        del inventory[name]
+        print("Product deleted")
+    else:
+        print("Product not found")
+
+while True:
+    print("\n1.Add Product")
+    print("2.View Products")
+    print("3.Update Product")
+    print("4.Delete Product")
+    print("5.Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        add_product()
+    elif choice == "2":
+        view_products()
+    elif choice == "3":
+        update_product()
+    elif choice == "4":
+        delete_product()
+    elif choice == "5":
+        break
+    else:
+        print("Invalid choice")
